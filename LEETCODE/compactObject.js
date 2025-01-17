@@ -1,11 +1,34 @@
 const obj = {"a": null, "b": [false, 1]}
 
-function compactObj(paramObj) {
-    // Object.keys(paramObj).map((key) => console.log(key))
-   const newArr =  Object.keys(paramObj).filter((key) => Boolean(paramObj[key]) === true)
-   
-   return newArr;
+const randArr = [[9, "Beast"]]
+
+
+function compactObject(obj) {
+    const stack = [[obj, Array.isArray(obj) ? [] : {}]];
+    let newObj = stack[0][1];
+    console.log(newObj)
+    while (stack.length > 0) {
+        const [currObj, newCurrObj] = stack.pop();
+
+        for (const key in currObj) {
+            const val = currObj[key];
+
+            if (!val) continue;
+            
+            if (typeof val !== 'object') {
+                Array.isArray(newCurrObj) ? newCurrObj.push(val) : newCurrObj[key] = val;
+                continue;
+            }
+
+            const newSubObj = Array.isArray(val) ? [] : {};
+            Array.isArray(newCurrObj) ? newCurrObj.push(newSubObj) : newCurrObj[key] = newSubObj;
+            stack.push([val, newSubObj]);
+        }
+    }
+
+    return newObj;
 }
 
-console.log(compactObj(obj))
-// Understanding the core difference between "for in" and "for of"
+console.log(obj)
+
+// Checked solution, this was a medium difficulty question.. i'll check back or check youtube to understand it better.. sigh i was dissapointed but then..
