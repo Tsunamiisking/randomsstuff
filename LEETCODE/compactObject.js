@@ -1,6 +1,7 @@
 const obj = {"a": null, "b": [false, 1]}
 
 const randArr = [9, "Beast"]
+randArr.reduce()
 // console.log(randArr.isEmpty())
 
 // function compactObject(obj) {
