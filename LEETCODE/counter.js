@@ -14,7 +14,6 @@ var createCounter = function (n) {
     return () => value++
   };
   
-  
   const counter = createCounter(10)
   counter()
   counter()
