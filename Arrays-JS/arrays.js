@@ -46,7 +46,12 @@ const testArray = [3 , 5, 6, 3 , 8, 5, 2, 9, 9, 7, 4, 0]
 // 
 
 
-//  Array.every() and Array.some()\
-let spaceArray = new Array(10)
-let newArr = [...testArray, ...spaceArray]
-console.log(testArray.some(num => num != null))
+//  Array.every() and Array.some()
+
+// let spaceArray = new Array(10)
+// let newArr = [...testArray, ...spaceArray]
+// console.log(testArray.some(num => num != null))
+
+
+
+// Array Prototype
